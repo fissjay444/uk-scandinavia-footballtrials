@@ -1,7 +1,7 @@
 'use client';
 
 import './whatsapp.css';
-import { ArrowDown, ArrowRight, Check, Globe2, Instagram, Mail, Play, ShieldCheck, Sparkles, Trophy, Users } from 'lucide-react';
+import { ArrowDown, ArrowRight, Check, Globe2, Instagram, Mail, MessageCircle, Play, ShieldCheck, Sparkles, Trophy, Users } from 'lucide-react';
 import Link from 'next/link';
 import { ApplyButton } from '@/components/ApplyButton';
 import { PlayerCarousel } from '@/components/PlayerCarousel';
@@ -105,5 +105,4 @@ export default function Home() {
 
 function ArrowUpRightIcon() { return <ArrowRight size={18} />; }
 
-function WhatsAppIcon() {
-  return <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3.2A12.7 12.7 0 0 0 5.1 22.4L3.3 28.8l6.6-1.7A12.8 12.8 0 1 0 16 3.2Zm0 23.3a10.5 10.5 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.5 10.5 0 1 1 16 26.5Zm5.8-7.8c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.3-.7.1a8.6 8.6 0 0 1-2.5-1.5 9.4 9.4 0 0 1-1.7-2.1c-.2-.3 0-.5.2-.7l.5-.6.2-.5-.2-.5c-.1-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.1 4.5.7.3 1.3.5 1
+function WhatsAppIcon() { return <MessageCircle size={24} aria-hidden="true" />; }
