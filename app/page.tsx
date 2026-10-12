@@ -1,6 +1,7 @@
 'use client';
 
-import { ArrowDown, ArrowRight, Check, Globe2, Instagram, Mail, MapPin, Play, ShieldCheck, Sparkles, Trophy, Users } from 'lucide-react';
+import './whatsapp.css';
+import { ArrowDown, ArrowRight, Check, Globe2, Instagram, Mail, Play, ShieldCheck, Sparkles, Trophy, Users } from 'lucide-react';
 import Link from 'next/link';
 import { ApplyButton } from '@/components/ApplyButton';
 import { PlayerCarousel } from '@/components/PlayerCarousel';
@@ -9,6 +10,8 @@ import { VideoCard } from '@/components/VideoCard';
 
 const heroImage = 'https://images.pexels.com/photos/4122451/pexels-photo-4122451.jpeg?auto=compress&cs=tinysrgb&h=650&w=940';
 const ballImage = 'https://images.pexels.com/photos/12616082/pexels-photo-12616082.jpeg?auto=compress&cs=tinysrgb&h=650&w=940';
+const whatsappMessage = encodeURIComponent("Hello UK & Scandinavia Football Trials Team! ⚽\nI'm interested in your football trial opportunities. Please guide me on how to get started.");
+const whatsappUrl = `https://wa.me/18255894437?text=${whatsappMessage}`;
 
 const countries = [
   { name: 'United Kingdom', short: 'Premier League & EFL clubs', flag: '🇬🇧', image: 'https://images.pexels.com/photos/4122451/pexels-photo-4122451.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' },
@@ -63,11 +66,17 @@ export default function Home() {
 
       <section className="section-shell story-section" id="story-video">
 
-        <div className="journey-panel">
-          <div className="journey-play-icon"><Play size={32} fill="currentColor" /></div>
-          <h2>OUR JOURNEY.<br /><em>YOUR NEXT CHAPTER.</em></h2>
-          <p>Discover the opportunities waiting for ambitious footballers.</p>
-          <a className="journey-cta" href="#opportunities">Explore Football Opportunities <ArrowRight size={15} /></a>
+        <div className="journey-column">
+          <a className="whatsapp-story-link" href={whatsappUrl} target="_blank" rel="noreferrer">
+            <span className="whatsapp-icon"><WhatsAppIcon /></span>
+            <span>Ask us on WhatsApp</span>
+          </a>
+          <div className="journey-panel">
+            <div className="journey-play-icon"><Play size={32} fill="currentColor" /></div>
+            <h2>OUR JOURNEY.<br /><em>YOUR NEXT CHAPTER.</em></h2>
+            <p>Discover the opportunities waiting for ambitious footballers.</p>
+            <a className="journey-cta" href="#opportunities">Explore Football Opportunities <ArrowRight size={15} /></a>
+          </div>
         </div>
         <div className="story-copy" id="about"><div className="section-kicker">About us</div><h2>WE OPEN DOORS FOR <em>TALENTED FOOTBALLERS</em></h2><p>UK &amp; Scandinavia FootballTrials.com helps ambitious footballers discover relevant trial opportunities and pathways across the UK, Norway, Sweden, and Denmark.</p><div className="feature-list"><span><Trophy /> Player development</span><span><Users /> Trial preparation</span><span><Sparkles /> Opportunity discovery</span><span><Globe2 /> International applications</span></div><ApplyButton label="Learn more about us" variant="outline" /></div>
       </section>
@@ -86,11 +95,15 @@ export default function Home() {
 
       <section className="faq-section section-shell" id="faq"><div className="section-heading-row"><div><div className="section-kicker">Questions, answered</div><h2>FREQUENTLY ASKED <em>QUESTIONS</em></h2></div></div><div className="faq-list">{faqs.map(([question, answer], index) => <details key={question} open={index === 0}><summary><span>{question}</span><span>+</span></summary><p>{answer}</p></details>)}</div></section>
 
-      <section className="contact-section" id="contact"><div className="section-shell contact-inner"><div><div className="section-kicker">Start a conversation</div><h2>YOUR DREAM<br /><em>STARTS HERE.</em></h2><p>Have a general question about the football pathways we cover? Reach out to the team on WhatsApp.</p></div><div className="contact-actions"><a className="contact-card" href="https://wa.me/18255894437" target="_blank" rel="noreferrer"><span><MapPin /></span><div><small>General enquiries</small><strong>Chat with us on WhatsApp</strong></div><ArrowUpRightIcon /></a><ApplyButton label="Begin registration" /></div></div></section>
+      <section className="contact-section" id="contact"><div className="section-shell contact-inner"><div><div className="section-kicker">Start a conversation</div><h2>YOUR DREAM<br /><em>STARTS HERE.</em></h2><p>Have a general question about the football pathways we cover? Reach out to the team on WhatsApp.</p></div><div className="contact-actions"><a className="contact-card" href={whatsappUrl} target="_blank" rel="noreferrer"><span className="contact-whatsapp-icon"><WhatsAppIcon /></span><div><small>General enquiries</small><strong>Chat with us on WhatsApp</strong></div><ArrowUpRightIcon /></a><ApplyButton label="Begin registration" /></div></div></section>
 
       <footer className="footer"><div className="section-shell footer-grid"><div><Link href="/" className="brand"><span className="brand-ball">◉</span><span><b>UK &amp; SCANDINAVIA</b><strong>FOOTBALLTRIALS.COM</strong></span></Link><p>Your talent. A bigger stage. Connecting ambitious players to relevant football pathways.</p></div><div><h3>Explore</h3><a href="#about">About</a><a href="#opportunities">Football trials</a><a href="#stories">Player stories</a><a href="#how-it-works">How it works</a></div><div><h3>Contact</h3><a href="#faq">FAQ</a><a href="#contact">WhatsApp enquiries</a><a href="mailto:enquiries@example.com"><Mail size={14} /> Email placeholder</a><a href="https://instagram.com" target="_blank" rel="noreferrer"><Instagram size={14} /> Instagram</a></div><div><h3>Ready?</h3><p>Take the first step towards a bigger stage.</p><ApplyButton label="Apply for trials" /></div></div><div className="section-shell footer-bottom"><span>© 2026 UK &amp; Scandinavia FootballTrials.com</span><span><Link href="/privacy">Privacy policy</Link><Link href="/terms">Terms &amp; conditions</Link></span></div></footer>
+      <a className="floating-whatsapp" href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="Ask us on WhatsApp" title="Ask us on WhatsApp"><WhatsAppIcon /><span>WhatsApp</span></a>
     </main>
   );
 }
 
 function ArrowUpRightIcon() { return <ArrowRight size={18} />; }
+
+function WhatsAppIcon() {
+  return <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3.2A12.7 12.7 0 0 0 5.1 22.4L3.3 28.8l6.6-1.7A12.8 12.8 0 1 0 16 3.2Zm0 23.3a10.5 10.5 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.5 10.5 0 1 1 16 26.5Zm5.8-7.8c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.3-.7.1a8.6 8.6 0 0 1-2.5-1.5 9.4 9.4 0 0 1-1.7-2.1c-.2-.3 0-.5.2-.7l.5-.6.2-.5-.2-.5c-.1-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.1 4.5.7.3 1.3.5 1
